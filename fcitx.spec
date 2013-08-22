@@ -58,6 +58,7 @@ fi
  
 cmake28 -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_INSTALL_DIR=%{_libdir}    \
+    -DCMAKE_BUILD_TYPE=Release      \
     -DENABLE_GTK2_IM_MODULE=On      \
     -DENABLE_QT_IM_MODULE=On        \
     -DENABLE_XDGAUTOSTART=Off       \
