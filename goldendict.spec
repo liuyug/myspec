@@ -45,17 +45,15 @@ GoldenDict is feature-rich dictionary lookup program. Features:
 %prep
 rm -rf %{name}-%{version}
 cp -r %{_sourcedir}/%{name} %{name}-%{version}
-#setup -q
+%setup -T -D
 #patch0 -p1
 
 %build
-cd %{name}-%{version}
 #configure
 PREFIX=%{_prefix} /usr/bin/qmake-qt4 "DISABLE_INTERNAL_PLAYER=1" 
 make %{?_smp_mflags}
 
 %install
-cd %{name}-%{version}
 rm -rf %{buildroot}
 make install INSTALL_ROOT=%{buildroot}
 

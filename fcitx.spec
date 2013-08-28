@@ -63,9 +63,7 @@ cmake28 -DCMAKE_INSTALL_PREFIX=/usr \
     -DENABLE_QT_IM_MODULE=On        \
     -DENABLE_XDGAUTOSTART=Off       \
     -DCMAKE_C_FLAGS=$rpm_flags      \
-    -DCMAKE_CXX_FLAGS=$rpm_flags    \
-    -DCMAKE_SHARED_LINKER_FLAGS="-s"    \
-    -DCMAKE_MODULE_LINKER_FLAGS="-s"
+    -DCMAKE_CXX_FLAGS=$rpm_flags
     
 make %{?_smp_mflags}
 
