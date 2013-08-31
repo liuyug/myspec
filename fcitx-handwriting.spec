@@ -6,7 +6,6 @@ Summary:handwriting for fcitx
 Group:		System Environment/Libraries
 License:GPL v2	
 URL:	https://github.com/fcitx/fcitx-handwriting	
-Patch0:fcitx-handwriting-20110908.diff
 
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
@@ -18,7 +17,6 @@ handwriting for fcitx
 %prep
 rm -rf %{name}-%{version}
 cp -r %{_sourcedir}/%{name} %{name}-%{version}
-%patch0 -p0
 %setup -T -D
 
 

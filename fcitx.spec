@@ -1,5 +1,6 @@
+%define     debug_package   %{nil}
 Name:		fcitx
-Version:	4.2.6.1
+Version:	4.2.8.1
 Release:	1%{?dist}
 Summary:	Fcitx is an input method framework with extension support.
 Group:		System Environment/Libraries
@@ -119,7 +120,10 @@ rm -rf %{buildroot}
 %{_libdir}/libfcitx-utils.so
 %{_libdir}/libfcitx-utils.so.0
 %{_libdir}/libfcitx-utils.so.0.1
-
+%{_libdir}/libfcitx-qt.so
+%{_libdir}/libfcitx-qt.so.0
+%{_libdir}/libfcitx-qt.so.0.1
+ 
 %files qt4
 %{_libdir}/qt4
 
