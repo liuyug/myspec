@@ -1,0 +1,115 @@
+diff -urN fcitx-4.2.8.1.orig/data/daemon.conf fcitx-4.2.8.1/data/daemon.conf
+--- fcitx-4.2.8.1.orig/data/daemon.conf	2013-07-17 00:01:23.000000000 +0800
++++ fcitx-4.2.8.1/data/daemon.conf	2013-08-30 14:30:54.177616424 +0800
+@@ -35,11 +35,11 @@
+ 
+   <!-- the memory limits are 1G instead of say 4G because they can't exceed 32-bit signed int max -->
+   <limit name="max_incoming_bytes">1000000000</limit>
+-  <limit name="max_incoming_unix_fds">250000000</limit>
++  <!-- limit name="max_incoming_unix_fds">250000000</limit -->
+   <limit name="max_outgoing_bytes">1000000000</limit>
+-  <limit name="max_outgoing_unix_fds">250000000</limit>
++  <!-- limit name="max_outgoing_unix_fds">250000000</limit -->
+   <limit name="max_message_size">1000000000</limit>
+-  <limit name="max_message_unix_fds">4096</limit>
++  <!-- limit name="max_message_unix_fds">4096</limit -->
+   <limit name="service_start_timeout">120000</limit>
+   <limit name="auth_timeout">240000</limit>
+   <limit name="max_completed_connections">100000</limit>
+diff -urN fcitx-4.2.8.1.orig/src/lib/fcitx-qt/qtkeytrans.cpp fcitx-4.2.8.1/src/lib/fcitx-qt/qtkeytrans.cpp
+--- fcitx-4.2.8.1.orig/src/lib/fcitx-qt/qtkeytrans.cpp	2013-07-17 00:01:23.000000000 +0800
++++ fcitx-4.2.8.1/src/lib/fcitx-qt/qtkeytrans.cpp	2013-08-30 11:19:15.701450153 +0800
+@@ -545,8 +545,8 @@
+     XF86FcitxKey_LaunchB,             Qt::Key_LaunchD,
+     XF86FcitxKey_LaunchC,             Qt::Key_LaunchE,
+     XF86FcitxKey_LaunchD,             Qt::Key_LaunchF,
+-    XF86FcitxKey_LaunchE,             Qt::Key_LaunchG,
+-    XF86FcitxKey_LaunchF,             Qt::Key_LaunchH,
++    XF86FcitxKey_LaunchE,             Qt::Key_Launch0,
++    XF86FcitxKey_LaunchF,             Qt::Key_Launch1,
+ 
+     0,                          0
+ };
+diff -urN fcitx-4.2.8.1.orig/tools/gui/quickphrase-editor/editor.ui fcitx-4.2.8.1/tools/gui/quickphrase-editor/editor.ui
+--- fcitx-4.2.8.1.orig/tools/gui/quickphrase-editor/editor.ui	2013-07-17 00:01:23.000000000 +0800
++++ fcitx-4.2.8.1/tools/gui/quickphrase-editor/editor.ui	2013-08-30 12:43:08.173520376 +0800
+@@ -33,48 +33,28 @@
+      <item>
+       <widget class="QPushButton" name="addButton">
+        <property name="text">
+-        <string/>
+-       </property>
+-       <property name="icon">
+-        <iconset theme="list-add">
+-         <normaloff/>
+-        </iconset>
++           <string>add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="batchEditButton">
+        <property name="text">
+-        <string/>
+-       </property>
+-       <property name="icon">
+-        <iconset theme="document-edit">
+-         <normaloff/>
+-        </iconset>
++           <string>edit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteButton">
+        <property name="text">
+-        <string/>
+-       </property>
+-       <property name="icon">
+-        <iconset theme="list-remove">
+-         <normaloff/>
+-        </iconset>
++           <string>delete</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clearButton">
+        <property name="text">
+-        <string/>
+-       </property>
+-       <property name="icon">
+-        <iconset theme="edit-delete">
+-         <normaloff/>
+-        </iconset>
++           <string>clear</string>
+        </property>
+       </widget>
+      </item>
+@@ -88,24 +68,14 @@
+      <item>
+       <widget class="QPushButton" name="importButton">
+        <property name="text">
+-        <string/>
+-       </property>
+-       <property name="icon">
+-        <iconset theme="document-import">
+-         <normaloff/>
+-        </iconset>
++           <string>import</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="exportButton">
+        <property name="text">
+-        <string/>
+-       </property>
+-       <property name="icon">
+-        <iconset theme="document-export">
+-         <normaloff/>
+-        </iconset>
++           <string>export</string>
+        </property>
+       </widget>
+      </item>
