@@ -1,5 +1,5 @@
-Name: aMule		
-Version: 2.3.1
+Name: amule		
+Version: svn_20130901
 Release:	1%{?dist}
 Summary:	aMule is an eMule-like client for the eD2k and Kademlia networks, supporting multiple platforms. 
 
@@ -7,7 +7,6 @@ Group:		Internet
 License:GPL	
 URL:	http://www.amule.org/	
 #URL:    https://code.google.com/p/amule/
-Source0:%{name}-%{version}.tar.bz2
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 #BuildRequires:	
@@ -25,21 +24,24 @@ aMule is entirely free, its sourcecode released under the GPL just like eMule, a
 aMule is built upon the wxWidgets (formerly wxWindows) toolkit, which enables it to support multiple platforms. 
 
 %prep
-%setup -q
+rm -rf %{name}-svn
+cp -r %{_sourcedir}/%{name}-svn   %{name}-svn
+%setup -T -D -n %{name}-svn
 
 
 %build
+./autogen.sh
 %configure --disable-debug --enable-optimize --enable-amule-daemon --enable-amulecmd --enable-webserver --enable-amule-gui --enable-alc --enable-alcc
 make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+rm -rf %{buildroot}
+make install DESTDIR=%{buildroot}
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %files

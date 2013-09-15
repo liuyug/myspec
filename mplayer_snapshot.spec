@@ -1,12 +1,12 @@
-Name:		MPlayer
-Version:1.1.1
+Name:		mplayer
+Version:snapshot_20130903
 Release:	1%{?dist}
 Summary:MPlayer is a movie player which runs on many systems
 
 Group:	Multimedia	
 License:GPL	
 URL:http://www.mplayerhq.hu		
-Source0:%{name}-%{version}.tar.xz
+Source0:mplayer-export-snapshot.tar.bz2
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 #BuildRequires:	
@@ -20,8 +20,7 @@ Another great feature of MPlayer is the wide range of supported output drivers. 
 MPlayer has an onscreen display (OSD) for status information, nice big antialiased shaded subtitles and visual feedback for keyboard controls. European/ISO 8859-1,2 (Hungarian, English, Czech, etc), Cyrillic and Korean fonts are supported along with 12 subtitle formats (MicroDVD, SubRip, OGM, SubViewer, Sami, VPlayer, RT, SSA, AQTitle, JACOsub, PJS and our own: MPsub). DVD subtitles (SPU streams, VOBsub and Closed Captions) are supported as well.
 
 %prep
-#%setup -n mplayer-export-2013-09-03
-%setup -q
+%setup -n mplayer-export-2013-09-03
 
 
 %build
