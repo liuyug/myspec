@@ -1,0 +1,22 @@
+diff -urN fcitx-configtool-0.4.7.orgin/CMakeLists.txt fcitx-configtool-0.4.7/CMakeLists.txt
+--- fcitx-configtool-0.4.7.orgin/CMakeLists.txt	2013-09-18 16:28:19.912080603 +0800
++++ fcitx-configtool-0.4.7/CMakeLists.txt	2013-09-18 16:29:41.910258682 +0800
+@@ -15,7 +15,7 @@
+ endif()
+ 
+ if(ENABLE_GTK2)
+-  pkg_check_modules(GTK2 "gtk+-2.0>=2.22" REQUIRED)
++  pkg_check_modules(GTK2 "gtk+-2.0>=2.18" REQUIRED)
+ endif()
+ 
+ pkg_check_modules(ISO_CODES "iso-codes" REQUIRED)
+@@ -45,5 +45,9 @@
+ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+ 
+ add_subdirectory(po)
++if(ENABLE_GTK3)
+ add_subdirectory(gtk3)
++endif()
++if(ENABLE_GTK2)
+ add_subdirectory(gtk)
++endif()
