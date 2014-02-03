@@ -1,5 +1,5 @@
 Name:		deadbeef
-Version:	0.5.6
+Version:	0.6.1
 Release:	1%{?dist}
 Summary:DeaDBeeF - Ultimate Music Player For GNU/Linux	
 Group:		MultiMedia
@@ -19,7 +19,7 @@ DeaDBeeF (as in 0xDEADBEEF) is an audio player for GNU/Linux, *BSD, OpenSolaris 
 
 
 %build
-%configure
+%configure --disable-ffmpeg
 make %{?_smp_mflags}
 
 

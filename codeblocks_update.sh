@@ -11,12 +11,7 @@ else
     cd codeblocks
 fi
 
-./bootstrap
 VERSION=12.11_svn`svn info| grep Revision | cut -d' ' -f2`
-
-cd ..
-rm -f $RPMBUILD/SOURCES/codeblocks-*
-tar  -jcvf $RPMBUILD/SOURCES/codeblocks-$VERSION.tar.bz2 --exclude=".svn" -C $RPMBUILD/SOURCES codeblocks
 
 rpmbuild --define "version $VERSION" -bb $RPMBUILD/SPECS/codeblocks.spec
 

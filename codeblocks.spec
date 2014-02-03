@@ -18,10 +18,11 @@ Finally, an IDE with all the features you need, having a consistent look, feel a
 Built around a plugin framework, Code::Blocks can be extended with plugins. Any kind of functionality can be added by installing/coding a plugin. For instance, compiling and debugging functionality is already provided by plugins!
 
 %prep
-%setup -n %{name}
-#%patch0 -p1
+cp -r %{_sourcedir}/codeblocks %{name}
+%setup -D -T -n %{name}
 
 %build
+./bootstrap
 %configure --with-contrib-plugins=all
 make %{?_smp_mflags}
 

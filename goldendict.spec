@@ -1,5 +1,5 @@
 Name: goldendict
-Version: 1.5.0_rc20130811
+Version: 1.5.0_rc20140118
 Release: 1%{?dist}
 Summary: Feature-rich dictionary lookup program
 Group: Education

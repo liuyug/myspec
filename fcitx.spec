@@ -80,11 +80,14 @@ XIM_ARGS="-r -D"
 SHORT_DESC="Fcitx"
 PREFERENCE_PROGRAM=/usr/bin/fcitx-configtool
 
-XMODIFIERS=@im=fcitx
 GTK_IM_MODULE=fcitx
-if [ -f /usr/lib64/qt4/plugins/inputmethods/libqtim-fcitx.so ] ||\
-       [ -f /usr/lib/qt4/plugins/inputmethods/libqtim-fcitx.so ] ; then
+#XMODIFIERS=@im=fcitx
+
+if [ -f /usr/lib64/qt4/plugins/inputmethods/qtim-fcitx.so ] ||\
+       [ -f /usr/lib/qt4/plugins/inputmethods/qtim-fcitx.so ] ; then
     QT_IM_MODULE=fcitx
+else
+    QT_IM_MODULE=xim
 fi
 EOF
 
